@@ -1,0 +1,348 @@
+{
+	"info": {
+		"_postman_id": "a17ad52b-6fc2-4bd2-9abe-6c53e9e3cab5",
+		"name": "NewsWebApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23736655",
+		"_collection_link": "https://speeding-shadow-817337.postman.co/workspace/My-Workspace~7d6d2e75-c8f3-4df8-8a5d-b2bd1dc79bc1/collection/23736655-a17ad52b-6fc2-4bd2-9abe-6c53e9e3cab5?action=share&creator=23736655&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "Ahtisham",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "Maqbool",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ahtisham@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin786",
+									"type": "text"
+								},
+								{
+									"key": "confirm_password",
+									"value": "admin786",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ahtisham@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin786",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/logout/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"logout",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "News",
+			"item": [
+				{
+					"name": "Search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/articles/search?search=Tesla&page=1&pageSize=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles",
+								"search"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Tesla"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								},
+								{
+									"key": "date",
+									"value": "2023-05-01",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search By Sources",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/articles/search-by-source?sources=abc-news&page=1&pageSize=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles",
+								"search-by-source"
+							],
+							"query": [
+								{
+									"key": "sources",
+									"value": "abc-news"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Sources",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/articles/get-all-sources",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles",
+								"get-all-sources"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert into Database",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/articles/search-by-category?pageSize=10&source_platform=newsapi.org",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles",
+								"search-by-category"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "us",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "technology",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "source_platform",
+									"value": "newsapi.org"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Articles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/articles/?country=us&category=business&page=1&pageSize=10&source_platform=newsapi.org",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles",
+								""
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "us"
+								},
+								{
+									"key": "category",
+									"value": "business"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "source_platform",
+									"value": "newsapi.org"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000/api"
+		},
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMDJkOWFkY2EwZDE1NGE4NzIzZWE5MTk3OGQ3YmI0NGFiOGNiN2Q3MTUyNGEzYmJjZTNmYzUyYzIyZjQxNjIzY2Y4NDFiOTM5ZWVkOGEyNDIiLCJpYXQiOjE2ODQ0MTE1NDEuNjg2NDQxLCJuYmYiOjE2ODQ0MTE1NDEuNjg2NDQ0LCJleHAiOjE3MTYwMzM5NDEuNjc0NjEzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.MJ9jB3RE7dFf1-WL90iuuZvkAMfXNLkFauQ0AxEdmjTAAu9uUiqHUFJMmedRlkAJK9BRL_-ktCIA4TSULP3SrC0FeRQD2PIMSGBRNvlxUP9mr52zeZxyqdgXBc4CEcOy8HZmtR49g6qnJeX3DO30TThBAOpA6yVq6aQQzlxPyaWnyolEF05H8AP7DYSR7xrTpQCguSOAuuIWRKaNbX6wqjhAgmcSF0Ok7UPGawDaAbEvmDYMn07l6tYRJP0A5ltrMY_tkIR0Dp9tsjpGqpiu-70Kg8q8R7hwpX7sl9LUEg5TmoHH_U4BUMyHAhaG8C4heJ4c6V9g1v2gPo4iRaLAwUAfucAtk2-OQ5OTxIkGQnfVXXUCOVtIuJkXsAmNhUJbBrGrWeQU6te7i_GJqpLEaJuG1cUcZth78FT7fdu3fKGa8kN1fmy16KhXcNp3ZKXHViJpLDKePg1j4S6ngwNLo_TP3Lxq397I2IxqfDFRWUrDwHnJXN2EOJ4mMLLIYQRjrAQeU1aoqi0HsPBoTf6iz7sXLFC1sGUQQ8-3OkXg7I2BA3FZR2HmGGxS7Z4fleyKI3b1lvggDTLxYcY5wBty4y-lgIejLqidfL3wZsWBMpx-o1spnZt9GmSK99AwAnUpb6M2qTZZgEEmYwAiOmHOeAVa0N0RIquqIA5E5O6hKNk"
+		}
+	]
+}
